@@ -1,3 +1,6 @@
-var PlainServer = require("./server/plain").PlainServer;
+var CRServer    = require("./server/CRServer").CRServer;
+var PlainRouter = require("./server/PFRouter");
 
-new PlainServer().listen(8000);
+var server = new CRServer("http");
+server.addRouter(PlainRouter.route("./http"));
+server.listen(8000);
